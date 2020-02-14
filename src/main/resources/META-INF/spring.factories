@@ -1,0 +1,2 @@
+# ×Ô¶¯×°Åä
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.vilin.springboot.autoconfig.WebAutoConfiguration

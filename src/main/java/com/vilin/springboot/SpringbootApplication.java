@@ -2,6 +2,7 @@ package com.vilin.springboot;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.context.WebServerApplicationContext;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
@@ -15,19 +16,20 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
-@SpringBootApplication
+//@SpringBootApplication
+@EnableAutoConfiguration
 public class SpringbootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApplication.class, args);
     }
 
-    @Bean
-    public RouterFunction<ServerResponse> helloWorld(){
-        return route(GET("/hello-world"),
-                request -> ok().body(Mono.just("Hello, World"), String.class)
-        );
-    }
+//    @Bean
+//    public RouterFunction<ServerResponse> helloWorld(){
+//        return route(GET("/hello-world"),
+//                request -> ok().body(Mono.just("Hello, World"), String.class)
+//        );
+//    }
 
 //    @Bean
 //    public ApplicationRunner runner(WebServerApplicationContext context) {
@@ -37,9 +39,9 @@ public class SpringbootApplication {
 //        };
 //    }
 
-    @EventListener(WebServerInitializedEvent.class)
-    public void noWebServerReady(WebServerInitializedEvent event){
-        System.out.println("当前 WebServer 实现类为："
-                + event.getWebServer().getClass().getName());
-    }
+//    @EventListener(WebServerInitializedEvent.class)
+//    public void noWebServerReady(WebServerInitializedEvent event){
+//        System.out.println("当前 WebServer 实现类为："
+//                + event.getWebServer().getClass().getName());
+//    }
 }
